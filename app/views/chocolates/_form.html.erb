@@ -1,0 +1,37 @@
+<%= form_with(model: chocolate, local: true) do |form| %>
+  <% if chocolate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chocolate.errors.count, "error") %> prohibited this chocolate from being saved:</h2>
+
+      <ul>
+      <% chocolate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :chocolate_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :chocolate_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sku %>
+    <%= form.text_field :sku, id: :chocolate_sku %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, id: :chocolate_quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
